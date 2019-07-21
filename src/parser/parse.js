@@ -1,5 +1,5 @@
 import { TokenType } from '../constants';
-import { parseValue } from './parsers.js';
+import { parseAny } from './parse-any.js';
 
 
 /**
@@ -20,7 +20,7 @@ export function parse(tokens) {
     // If there are no tokens, this is invalud JSON...
     if (!tokensToParse.length) throw new Error('JSON is invalid.');
 
-    const result = parseValue(tokensToParse);
+    const result = parseAny(tokensToParse);
 
     // JSON should have only one root value. 
     // So, throw an error if there are some tokens left after parsing a value.
